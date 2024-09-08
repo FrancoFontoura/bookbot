@@ -4,11 +4,13 @@ def main():
     book_path = "books/frankenstein.txt"
     text = getText(book_path)
     word_number = wordCounter(text)
-    print(f"This book has {word_number} words\n\n")
     char_dict = charCounter(text)
     char_dict = sortDict(char_dict)
+    print(f"\n\n   ---   Quick analysis of {book_path}   ---\n\n\n")
+    print(f"This book has {word_number} words\n\n")
     for key in char_dict:
-        print(f"The letter {key} appears {char_dict[key]} times in the text\n")
+        print(f"The letter '{key}' appears {char_dict[key]} times in the text\n")
+    print("   ---   End analysis   ---")
 
 #reading the book
 def getText(path):
@@ -36,7 +38,6 @@ def charCounter(text):
 def sortDict(char_dict):
     sorted_dict = dict(sorted(char_dict.items(), key=lambda item: item[1], reverse=True))
     return sorted_dict
-
 
 
 main()
